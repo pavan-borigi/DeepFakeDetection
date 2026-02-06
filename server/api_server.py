@@ -2,6 +2,7 @@
 Flask API server for deepfake detection using the trained model
 """
 import io
+import os
 from pathlib import Path
 from functools import lru_cache
 
@@ -174,7 +175,8 @@ if __name__ == "__main__":
         print("Press CTRL+C to stop the server")
         print("=" * 60)
         # Run with optimizations: no debug, no reloader, single-threaded
-        app.run(host="0.0.0.0", port=5000, debug=False, use_reloader=False, threaded=True)
+        port = int(os.getenv("PORT", "5000"))
+        app.run(host="0.0.0.0", port=port, debug=False, use_reloader=False, threaded=True)
     else:
         print()
         print("=" * 60)

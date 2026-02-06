@@ -21,6 +21,7 @@ export default function Dashboard() {
   const { toast } = useToast();
   const { data: detections, isLoading: loadingDetections } = useDetections();
   const createDetection = useCreateDetection();
+  const apiBaseUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/$/, '');
   
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -75,7 +76,7 @@ export default function Dashboard() {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      const apiResponse = await fetch('http://localhost:5000/api/detect', {
+      const apiResponse = await fetch(`${apiBaseUrl}/api/detect`, {
         method: 'POST',
         body: formData,
       });

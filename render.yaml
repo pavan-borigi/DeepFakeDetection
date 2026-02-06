@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: deepfake-api
+    env: python
+    rootDir: server
+    buildCommand: pip install -r requirements-api.txt
+    startCommand: python api_server.py
+    plan: free
+
+  - type: web
+    name: deepfake-frontend
+    env: static
+    rootDir: apps/web
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: VITE_SUPABASE_PROJECT_ID
+        sync: false
+      - key: VITE_API_URL
+        sync: false
