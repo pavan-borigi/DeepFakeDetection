@@ -29,8 +29,22 @@ export default function Dashboard() {
   const [currentResult, setCurrentResult] = useState<Detection | null>(null);
 
   const handleSignOut = async () => {
-    await signOut();
-    navigate('/');
+    try {
+      await signOut();
+      toast({
+        title: 'Signed out',
+        description: 'You have been signed out successfully.',
+      });
+    } catch (error) {
+      console.error('Sign out error:', error);
+      toast({
+        title: 'Sign Out Failed',
+        description: 'Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      navigate('/');
+    }
   };
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -148,7 +162,7 @@ export default function Dashboard() {
       {/* Header */}
       <header className="relative z-10 border-b border-border/30 bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4">
-          <nav className="flex items-center justify-between">
+          <nav className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center glow-cyan">
                 <Shield className="w-5 h-5 text-primary" />
@@ -158,18 +172,18 @@ export default function Dashboard() {
               </span>
             </div>
             
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
               <Button
                 variant="ghost"
                 size="sm"
-                className="font-mono text-sm"
+                className="font-mono text-sm w-full sm:w-auto"
                 onClick={() => navigate('/history')}
               >
                 <History className="w-4 h-4 mr-2" />
                 HISTORY
               </Button>
-              <div className="h-6 w-px bg-border" />
-              <span className="font-mono text-sm text-muted-foreground">
+              <div className="hidden sm:block h-6 w-px bg-border" />
+              <span className="font-mono text-sm text-muted-foreground truncate max-w-[220px]">
                 {user?.email}
               </span>
               <Button
@@ -188,7 +202,7 @@ export default function Dashboard() {
       {/* Main Content */}
       <main className="relative z-10 container mx-auto px-4 py-8">
         {/* Stats Grid */}
-        <div className="grid md:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           <StatsCard
             icon={BarChart3}
             label="Total Scans"
@@ -223,7 +237,7 @@ export default function Dashboard() {
                 <div
                   {...getRootProps()}
                   className={`
-                    relative border-2 border-dashed rounded-xl p-12 text-center cursor-pointer
+                    relative border-2 border-dashed rounded-xl p-8 sm:p-12 text-center cursor-pointer
                     transition-all duration-300
                     ${isDragActive 
                       ? 'border-primary bg-primary/5 glow-cyan' 
@@ -244,7 +258,7 @@ export default function Dashboard() {
                         or click to select • Images & Videos up to 50MB
                       </p>
                     </div>
-                    <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
+                    <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <FileImage className="w-4 h-4" /> JPG, PNG, GIF
                       </span>
