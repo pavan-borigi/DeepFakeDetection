@@ -1,0 +1,13 @@
+{
+  "name": "deepfake-detection-root",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm --prefix apps/web run dev",
+    "build": "npm --prefix apps/web run build",
+    "build:dev": "npm --prefix apps/web run build:dev",
+    "preview": "npm --prefix apps/web run preview",
+    "lint": "npm --prefix apps/web run lint",
+    "install:web": "npm --prefix apps/web install"
+  }
+}
