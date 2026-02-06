@@ -44,6 +44,37 @@ It uses a **MobileNetV3** AI model under the hood—a lightweight but powerful n
 *   **Backend**: Python, Flask, PyTorch
 *   **Database**: Supabase
 
+## 🚀 Deploy on Render
+
+### Backend (Flask API)
+1. Create a new **Web Service** from the repo.
+2. **Root Directory**: `server`
+3. **Build Command**:
+    ```bash
+    pip install -r requirements-api.txt
+    ```
+4. **Start Command**:
+    ```bash
+    python api_server.py
+    ```
+5. **Environment**: Python 3.12+
+
+### Frontend (Vite)
+1. Create a new **Static Site** from the repo.
+2. **Root Directory**: `apps/web`
+3. **Build Command**:
+    ```bash
+    npm install && npm run build
+    ```
+4. **Publish Directory**: `dist`
+5. Add environment variables:
+    - `VITE_SUPABASE_URL`
+    - `VITE_SUPABASE_PUBLISHABLE_KEY`
+
+### Notes
+- The API runs on Render at a public URL; update any client-side API base URL if you deploy the backend separately.
+- If you want to proxy API requests from the frontend, add a rewrite on Render or configure a custom domain.
+
 ## 🤝 Contributing
 Found a bug? Have an idea? Feel free to open an issue or submit a pull request. We love improving this together!
 
