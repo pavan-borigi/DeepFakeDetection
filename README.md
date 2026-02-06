@@ -75,6 +75,12 @@ It uses a **MobileNetV3** AI model under the hood—a lightweight but powerful n
 - The API runs on Render at a public URL; update any client-side API base URL if you deploy the backend separately.
 - If you want to proxy API requests from the frontend, add a rewrite on Render or configure a custom domain.
 
+### Render Checklist
+1. Deploy using `render.yaml`.
+2. Add frontend env vars: `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, `VITE_SUPABASE_PROJECT_ID`, `VITE_API_URL`.
+3. Set `VITE_API_URL` to the backend service URL.
+4. Confirm the API is live at `/api/health` before testing uploads.
+
 ## 🤝 Contributing
 Found a bug? Have an idea? Feel free to open an issue or submit a pull request. We love improving this together!
 
