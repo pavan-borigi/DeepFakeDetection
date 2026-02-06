@@ -67,7 +67,7 @@ export default function History() {
       {/* Header */}
       <header className="relative z-10 border-b border-border/30 bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4">
-          <nav className="flex items-center justify-between">
+          <nav className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
@@ -87,10 +87,10 @@ export default function History() {
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 w-full sm:w-auto">
                 <Filter className="w-4 h-4 text-muted-foreground" />
                 <Select value={filter} onValueChange={(v) => setFilter(v as any)}>
-                  <SelectTrigger className="w-32 font-mono text-sm bg-secondary/50 border-border/50">
+                  <SelectTrigger className="w-full sm:w-32 font-mono text-sm bg-secondary/50 border-border/50">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -148,7 +148,7 @@ export default function History() {
                   onClick={() => setSelectedDetection(detection)}
                 >
                   <CardContent className="p-4">
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                       {/* Thumbnail */}
                       <div className="w-20 h-20 rounded-lg bg-secondary/50 overflow-hidden flex-shrink-0">
                         {detection.file_type === 'video' ? (
@@ -166,12 +166,12 @@ export default function History() {
                       
                       {/* Info */}
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-start justify-between gap-4">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                           <div className="min-w-0">
                             <p className="font-mono text-sm text-foreground truncate">
                               {detection.file_name}
                             </p>
-                            <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
+                            <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-muted-foreground">
                               <span className="flex items-center gap-1">
                                 <Calendar className="w-3 h-3" />
                                 {formatDate(detection.created_at)}
@@ -211,7 +211,7 @@ export default function History() {
                               </p>
                             </div>
                             
-                            <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="flex items-center gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                               <Button
                                 variant="ghost"
                                 size="icon"

@@ -43,7 +43,7 @@ export default function Index() {
       
       {/* Header */}
       <header className="relative z-10 container mx-auto px-4 py-6">
-        <nav className="flex items-center justify-between">
+        <nav className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center glow-cyan">
               <Shield className="w-5 h-5 text-primary" />
@@ -53,14 +53,14 @@ export default function Index() {
             </span>
           </div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
             <Link to="/auth">
-              <Button variant="ghost" className="font-mono text-sm">
+              <Button variant="ghost" className="font-mono text-sm w-full sm:w-auto">
                 SIGN IN
               </Button>
             </Link>
             <Link to="/auth">
-              <Button className="font-mono text-sm bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button className="font-mono text-sm bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto">
                 GET STARTED
               </Button>
             </Link>
@@ -69,14 +69,14 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative z-10 container mx-auto px-4 py-20 text-center">
+      <section className="relative z-10 container mx-auto px-4 py-16 sm:py-20 text-center">
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="font-mono text-sm text-primary">DETECTION SYSTEM ONLINE</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold font-mono leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-mono leading-tight">
             <span className="text-foreground">DETECT</span>
             <br />
             <span className="text-primary text-glow-cyan">DEEPFAKES</span>
@@ -84,7 +84,7 @@ export default function Index() {
             <span className="text-foreground">INSTANTLY</span>
           </h1>
           
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Advanced AI-powered detection system to verify the authenticity of images and videos. 
             Protect yourself from manipulated media.
           </p>
@@ -104,15 +104,15 @@ export default function Index() {
       </section>
 
       {/* Demo Preview */}
-      <section className="relative z-10 container mx-auto px-4 py-12">
+      <section className="relative z-10 container mx-auto px-4 py-10 sm:py-12">
         <div className="max-w-4xl mx-auto">
           <div className="relative rounded-2xl overflow-hidden gradient-border p-8">
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {/* Real Result */}
               <div className="space-y-4 text-center">
                 <div className="aspect-square rounded-xl bg-secondary/50 flex items-center justify-center overflow-hidden">
-                  <div className="w-32 h-32 rounded-full bg-success/20 flex items-center justify-center glow-green">
-                    <CheckCircle className="w-16 h-16 text-success" />
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-success/20 flex items-center justify-center glow-green">
+                    <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16 text-success" />
                   </div>
                 </div>
                 <div className="space-y-1">
@@ -124,8 +124,8 @@ export default function Index() {
               {/* Fake Result */}
               <div className="space-y-4 text-center">
                 <div className="aspect-square rounded-xl bg-secondary/50 flex items-center justify-center overflow-hidden">
-                  <div className="w-32 h-32 rounded-full bg-destructive/20 flex items-center justify-center glow-red">
-                    <AlertTriangle className="w-16 h-16 text-destructive" />
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-destructive/20 flex items-center justify-center glow-red">
+                    <AlertTriangle className="w-12 h-12 sm:w-16 sm:h-16 text-destructive" />
                   </div>
                 </div>
                 <div className="space-y-1">
@@ -171,7 +171,7 @@ export default function Index() {
 
       {/* CTA Section */}
       <section className="relative z-10 container mx-auto px-4 py-20">
-        <div className="max-w-3xl mx-auto text-center space-y-8 p-12 rounded-2xl bg-gradient-to-b from-primary/10 to-transparent border border-primary/20">
+        <div className="max-w-3xl mx-auto text-center space-y-8 p-8 sm:p-12 rounded-2xl bg-gradient-to-b from-primary/10 to-transparent border border-primary/20">
           <h2 className="text-3xl font-mono font-bold text-foreground">
             READY TO <span className="text-primary text-glow-cyan">DETECT?</span>
           </h2>

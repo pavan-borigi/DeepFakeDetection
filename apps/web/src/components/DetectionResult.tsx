@@ -62,12 +62,12 @@ export default function DetectionResult({ detection }: DetectionResultProps) {
         
         {/* Result Text */}
         <div className="text-center space-y-2">
-          <div className={`font-mono text-4xl font-bold ${
+          <div className={`font-mono text-3xl sm:text-4xl font-bold ${
             isReal ? 'text-success text-glow-green' : 'text-destructive'
           }`}>
             {isReal ? 'REAL' : 'FAKE'}
           </div>
-          <div className="font-mono text-lg text-muted-foreground">
+          <div className="font-mono text-base sm:text-lg text-muted-foreground">
             {confidence.toFixed(1)}% Confidence
           </div>
         </div>
@@ -75,7 +75,7 @@ export default function DetectionResult({ detection }: DetectionResultProps) {
 
       {/* Analysis Details */}
       {detection.analysis_details && (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="text-center p-3 rounded-lg bg-secondary/30">
             <CheckCircle className="w-5 h-5 mx-auto mb-2 text-success" />
             <div className="font-mono text-lg text-foreground">
